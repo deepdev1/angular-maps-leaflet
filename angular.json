@@ -103,6 +103,9 @@
           "options": {
             "browserTarget": "gis-typical-leaflet:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
