@@ -106,7 +106,7 @@ npm: 8
    ```bash
    git branch gh-pages
    git checkout gh-pages
-  ```
+   ```
 
 4. Push changes to new remote branch
    ```bash
@@ -122,3 +122,6 @@ npm: 8
    ```bash
    ngh --dir=dist/[project-name]
    ```
+
+Source: https://stackoverflow.com/a/61909939
+
