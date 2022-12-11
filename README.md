@@ -66,7 +66,7 @@ npm: 8
          }
       ```
 
-      - Add map div to template
+      - Add map `div` to template
         - ```html
           <div class="map-container">
             <div class="map-frame">
@@ -74,7 +74,7 @@ npm: 8
             </div>
           </div>  
           ```
-          
+
         - ```scss
           .map-container {
               position: absolute;
