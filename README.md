@@ -93,3 +93,32 @@ npm: 8
           ```
 
 
+## Deployment - GitHub Pages
+
+1. Install `angular-cli-ghpages`
+   ```bash
+   npm install -g angular-cli-ghpages
+   ```
+
+2. Uncomment `/dist` in `.gitignore`
+
+3. Create a new branch
+   ```bash
+   git branch gh-pages
+   git checkout gh-pages
+  ```
+
+4. Push changes to new remote branch
+   ```bash
+   git push -f -u origin gh-pages
+   ```
+
+5. Build project
+   ```bash
+   ng build --prod --base-href https://[username].github.io/[repo]/
+   ```
+
+6. Publish to gh-pages
+   ```bash
+   ngh --dir=dist/[project-name]
+   ```
