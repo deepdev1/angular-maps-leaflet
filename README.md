@@ -1,27 +1,95 @@
-# GisTypicalLeaflet
+# Angular Maps UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+Maps UI with typical features and data visualization
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## About Project
 
-## Code scaffolding
+```text
+angular: 15
+npm: 8
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Integrations
 
-## Build
+1. Leaflet
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   - ```bash
+     npm install leaflet
+     npm install --save-dev @types/leaflet
+     ```
 
-## Running unit tests
+   - Add leaflet styles `angular.json`
+     ```json
+     {
+        ...
+        "projects": {
+            "architect": {
+                "styles": [
+                    ...
+                    "./node_modules/leaflet/dist/leaflet.css"
+                ],
+            }
+        }
+        ...
+     }
+     ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    - Import leaflet library in the component of interest
+      ```typescript
+      import * as L from 'leaflet';
+      ```
 
-## Running end-to-end tests
+    - Initialize map (`L.map`)
+      ```typescript
+         private map!:L.Map;
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+         private initMap() {
+            const mapOptions:L.MapOptions = {
+              center: this.mapService.getMapCenter(),
+              zoom: 15,
+              zoomControl: false
+            }
+            this.map = L.map('map', mapOptions);
+        
+            const tiles:L.TileLayer = L.tileLayer(this.mapService.getMapTileLayer(), {
+              maxZoom: 18,
+              minZoom: 3,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            });
+            tiles.addTo(this.map);
 
-## Further help
+            L.control.zoom({
+              position: "bottomright"
+            }).addTo(this.map);
+            
+         }
+      ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+      - Add map div to template
+        - ```html
+          <div class="map-container">
+            <div class="map-frame">
+                <div id="map"></div>
+            </div>
+          </div>  
+          ```
+          
+        - ```scss
+          .map-container {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              // margin: 0.5rem;
+
+              .map-frame {
+                  #map {
+                      height: 100%;
+                  }
+              }
+          }
+          ```
+
+
