@@ -41,11 +41,11 @@ export class MapComponent implements AfterViewInit {
     this.initMap();
   }
 
-  themeIcon:string = "/assets/img/moon.svg";
+  themeIcon:string = "assets/img/moon.svg";
   isDarkTheme:boolean = false;
   switchTheme() {
     this.isDarkTheme = !this.isDarkTheme;
-    this.themeIcon = this.isDarkTheme ? "/assets/img/sun.svg" : "/assets/img/moon.svg";
+    this.themeIcon = this.isDarkTheme ? "assets/img/sun.svg" : "assets/img/moon.svg";
   }
 
 }
