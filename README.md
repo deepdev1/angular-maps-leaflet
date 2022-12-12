@@ -123,5 +123,7 @@ npm: 8
    ngh --dir=dist/[project-name]
    ```
 
-Source: https://stackoverflow.com/a/61909939
+Sources: 
+- https://stackoverflow.com/a/61909939
+- https://stackoverflow.com/a/56379658
 
