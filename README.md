@@ -115,7 +115,7 @@ npm: 8
 
 5. Build project
    ```bash
-   ng build --prod --base-href https://[username].github.io/[repo]/
+   ng build --prod --base-href https://[username].github.io/[repo]/ --deploy-url https://[username].github.io/[repo]/
    ```
 
 6. Publish to gh-pages
